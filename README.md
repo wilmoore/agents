@@ -15,3 +15,4 @@ grok/instruction.md
 ## Current Instructions
 
 - **chatgpt/** - "Neo" prompt focused on leverage, money, and directness
+- **claude-code/** - Global CLAUDE.md rules for Claude Code CLI
