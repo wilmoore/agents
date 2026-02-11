@@ -1,0 +1,9 @@
+{
+  "lastSequence": 1,
+  "entries": [
+    {
+      "branch": "feat/linkedin-inbound-engine-chatgpt-project",
+      "adrs": ["001-chatgpt-project-directory-structure.md"]
+    }
+  ]
+}
