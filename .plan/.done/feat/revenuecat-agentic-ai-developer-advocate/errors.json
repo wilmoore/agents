@@ -1,0 +1,12 @@
+{
+  "attempts": [
+    {
+      "timestamp": "2026-03-07T04:25:00Z",
+      "tool": "Bash",
+      "error": "gh gist create /Users/wilmooreiii/Documents/src/agents/devrel-agent/reports/batch-001.md --public --desc \"RevenueCat Developer Friction Report — Batch 001\"",
+      "status": "unresolved"
+    }
+  ],
+  "strikeCount": 1,
+  "lastErrorHash": "1b0153dc"
+}

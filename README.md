@@ -8,6 +8,7 @@ Personal system instructions for LLM agents.
 |-------|----------|---------|
 | [Claude Code](./claude-code/) | Claude Code CLI | Quality-focused development guidelines |
 | [ChatGPT](./chatgpt/) | ChatGPT | Strategic operator focused on leverage |
+| [DevRel Agent](./devrel-agent/) | CLI | RevenueCat developer advocacy automation |
 
 ## Quick Setup
 
@@ -21,14 +22,23 @@ ln -nsf ~/Documents/src/agents/claude-code/instruction.md ~/.claude/CLAUDE.md
 
 Copy the contents of [`chatgpt/instruction.md`](./chatgpt/instruction.md) into ChatGPT's custom instructions.
 
+### DevRel Agent
+
+```bash
+cd devrel-agent && npm install && npm run dev run
+```
+
 ## Structure
 
 ```
 agents/
 ├── claude-code/
 │   └── instruction.md    # Claude Code global rules
-└── chatgpt/
-    └── instruction.md    # ChatGPT Morpheus persona
+├── chatgpt/
+│   └── instruction.md    # ChatGPT Morpheus persona
+└── devrel-agent/
+    ├── src/              # TypeScript source
+    └── reports/          # Generated DevRel reports
 ```
 
 ## Adding New Agents

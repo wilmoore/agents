@@ -1,9 +1,13 @@
 {
-  "lastSequence": 1,
+  "lastSequence": 2,
   "entries": [
     {
       "branch": "feat/linkedin-inbound-engine-chatgpt-project",
       "adrs": ["001-chatgpt-project-directory-structure.md"]
+    },
+    {
+      "branch": "feat/revenuecat-agentic-ai-developer-advocate",
+      "adrs": ["002-devrel-agent-distribution-gate.md"]
     }
   ]
 }
