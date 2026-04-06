@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOW – {{TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #111827;
+    --ink:        #0f172a;
+    --slate:      #475569;
+    --muted:      #94a3b8;
+    --rule:       #e2e8f0;
+    --white:      #ffffff;
+    --accent:     #3b82f6;
+    --accent-dim: #dbeafe;
+    --warn-bg:    #fffbeb;
+    --warn-bd:    #f59e0b;
+    --warn-text:  #78350f;
+    --serif:      'DM Serif Display', Georgia, serif;
+    --sans:       'DM Sans', system-ui, sans-serif;
+    --mono:       'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; }
+
+  body {
+    font-family: var(--sans);
+    background: #f8fafc;
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .document {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 8px 32px rgba(0,0,0,.08);
+  }
+
+  /* ─── HEADER ─────────────────────────────────────────── */
+  .doc-header {
+    background: var(--navy);
+    padding: 44px 56px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 280px; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(59,130,246,.07) 100%);
+    pointer-events: none;
+  }
+  .doc-label {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: .65rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+  }
+  .doc-title {
+    font-family: var(--serif);
+    font-size: 2.15rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.18;
+    margin-bottom: 28px;
+    letter-spacing: -.01em;
+  }
+  .doc-meta { display: flex; gap: 40px; flex-wrap: wrap; }
+  .doc-meta-item label {
+    display: block;
+    font-family: var(--mono);
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .doc-meta-item span {
+    font-size: .82rem;
+    color: rgba(255,255,255,.78);
+  }
+
+  /* ─── BODY ───────────────────────────────────────────── */
+  .doc-body { padding: 40px 56px 0; }
+
+  .section { margin-bottom: 36px; }
+
+  .section-heading {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ─── OUTCOME ────────────────────────────────────────── */
+  .outcome-block {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    background: linear-gradient(to right, #f0f7ff, transparent 80%);
+    border-radius: 0 6px 6px 0;
+  }
+  .outcome-block p {
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    color: var(--ink);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ─── SCOPE TABLE ────────────────────────────────────── */
+  .scope-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .scope-table td {
+    vertical-align: top;
+    width: 50%;
+    padding: 16px 20px 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .scope-table td:last-child {
+    padding-left: 24px;
+    padding-right: 0;
+    border-left: 1px solid var(--rule);
+  }
+  .scope-table tr:last-child td {
+    border-bottom: none;
+  }
+  .scope-item-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .scope-num {
+    font-family: var(--mono);
+    font-size: .62rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 2px 6px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .scope-table ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .scope-table ul li {
+    font-size: .78rem;
+    color: var(--slate);
+    line-height: 1.55;
+    margin-bottom: 4px;
+  }
+  .scope-table ul li::before {
+    content: none;
+  }
+  .scope-table ul li code {
+    font-family: var(--mono);
+    font-size: .72rem;
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #334155;
+    white-space: nowrap;
+  }
+
+  /* ─── SUMMARY BAR ────────────────────────────────────── */
+  .summary-bar {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .summary-item label {
+    display: block;
+    font-family: var(--mono);
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .summary-item .value {
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    color: var(--white);
+    line-height: 1;
+  }
+  .summary-divider {
+    width: 1px;
+    height: 44px;
+    background: rgba(255,255,255,.1);
+  }
+
+  /* ─── NOTES ──────────────────────────────────────────── */
+  .notes-block {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-bd);
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 36px;
+  }
+  .notes-label {
+    font-family: var(--mono);
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--warn-text);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .notes-block p {
+    font-size: .82rem;
+    color: #92400e;
+    line-height: 1.6;
+  }
+
+  /* ─── SIGNATURES ─────────────────────────────────────── */
+  .signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+    padding-top: 4px;
+  }
+  .sig-block h4 {
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .sig-field { margin-bottom: 20px; }
+  .sig-field label {
+    display: block;
+    font-size: .72rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .sig-line {
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    width: 100%;
+    height: 28px;
+    display: block;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────── */
+  .doc-footer {
+    border-top: 1px solid var(--rule);
+    padding: 16px 56px;
+    text-align: center;
+  }
+  .doc-footer p {
+    font-family: var(--mono);
+    font-size: .62rem;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+
+  @page :first { margin: 0; }
+  @page { margin-top: 48px; }
+  @media print {
+    body { background: white; }
+    .document { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="document">
+
+  <header class="doc-header">
+    <div class="doc-label">Statement of Work</div>
+    <h1 class="doc-title">{{TITLE}}</h1>
+    <div class="doc-meta">
+      <div class="doc-meta-item">
+        <label>Date</label>
+        <span>{{DATE}}</span>
+      </div>
+      <div class="doc-meta-item">
+        <label>Project Type</label>
+        <span>{{PROJECT_TYPE}}</span>
+      </div>
+      <div class="doc-meta-item">
+        <label>Reference</label>
+        <span>{{REFERENCE}}</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="doc-body">
+
+    <section class="section">
+      <h2 class="section-heading">Project Outcome</h2>
+      <div class="outcome-block">
+        <p>{{OUTCOME}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">Scope of Services</h2>
+      <table class="scope-table">
+        <tbody>
+        {{SCOPE_ROWS}}
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <div style="padding: 0 56px;">
+    <div class="summary-bar">
+      <div class="summary-item">
+        <label>Total Timeline</label>
+        <div class="value">{{TIMELINE}}</div>
+      </div>
+      <div class="summary-divider"></div>
+      <div class="summary-item" style="text-align:right;">
+        <label>Total Investment</label>
+        <div class="value">{{PRICE}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 0 56px;">
+    {{NOTES_BLOCK}}
+  </div>
+
+  <div style="padding: 0 56px;">
+    <div style="border-top: 1px solid var(--rule); padding-top: 32px;">
+      <div class="signatures">
+        <div class="sig-block">
+          <h4>Client Acceptance</h4>
+          <div class="sig-field"><label>Name</label><div class="sig-line"></div></div>
+          <div class="sig-field"><label>Signature</label><div class="sig-line"></div></div>
+          <div class="sig-field"><label>Date</label><div class="sig-line"></div></div>
+        </div>
+        <div class="sig-block">
+          <h4>Provider Acceptance</h4>
+          <div class="sig-field"><label>Name</label><div class="sig-line"></div></div>
+          <div class="sig-field"><label>Signature</label><div class="sig-line"></div></div>
+          <div class="sig-field"><label>Date</label><div class="sig-line"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="doc-footer">
+    <p>Confidential &amp; Proprietary &nbsp;•&nbsp; {{TITLE}} SOW &nbsp;•&nbsp; Page 1 of 1</p>
+  </footer>
+
+</div>
+</body>
+</html>
