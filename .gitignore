@@ -9,4 +9,7 @@ devrel-agent/node_modules/
 # Session handoff snapshots (ephemeral)
 .plan/session-handoff/
 .plan/session-handoff.md
-doc/.plan/
+
+# Planning scratchpads (keep tracked); ignore only ephemeral snapshots if present
+doc/.plan/session-handoff/
+doc/.plan/session-handoff.md

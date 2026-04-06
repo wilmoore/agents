@@ -1,0 +1,41 @@
+{
+  "lastSequence": 3,
+  "items": [
+    {
+      "id": 1,
+      "title": "Add skills directory and import sow-generator",
+      "description": "Add a top-level skills/ directory (Agent Skills spec compatible) and import the sow-generator skill (from a local sow-generator.skill bundle) as a child directory under skills/.",
+      "category": "feature",
+      "severity": "medium",
+      "fingerprint": "feature|1|add-skills-directory-and-import-sow-generator",
+      "source": "/pro:feature",
+      "sourceBranch": "feat/add-skills-directory",
+      "createdAt": "2026-04-06T09:35:22Z",
+      "status": "in-progress"
+    },
+    {
+      "id": 2,
+      "title": "Consolidate ADR/backlog indices",
+      "description": "Avoid divergence between legacy `.plan/*` indices and the newer `doc/.plan/*` indices by selecting a single canonical location and updating docs/tooling to reference it.",
+      "category": "chore",
+      "severity": "low",
+      "fingerprint": "feature|2|consolidate-adr-backlog-indices",
+      "source": "/pro:feature",
+      "sourceBranch": "feat/add-skills-directory",
+      "createdAt": "2026-04-06T09:35:22Z",
+      "status": "open"
+    },
+    {
+      "id": 3,
+      "title": "Consolidate planning indices",
+      "description": "Decide whether `.plan/*` or `doc/.plan/*` is canonical for ADR/backlog indices and update docs/tooling to avoid divergence.",
+      "category": "chore",
+      "severity": "low",
+      "fingerprint": "feature|3|consolidate-planning-indices",
+      "source": "/pro:pr",
+      "sourceBranch": "feat/add-skills-directory",
+      "createdAt": "2026-04-06T10:35:06Z",
+      "status": "open"
+    }
+  ]
+}
