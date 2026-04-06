@@ -20,3 +20,4 @@ We use the [Michael Nygard format](https://cognitect.com/blog/2011/11/15/documen
 
 <!-- New ADRs added below -->
 - [001. ChatGPT Project Directory Structure](001-chatgpt-project-directory-structure.md)
+- [002. DevRel Agent Distribution Gate](002-devrel-agent-distribution-gate.md)

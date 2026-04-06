@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+
+# DevRel Agent build artifacts
+devrel-agent/dist/
+devrel-agent/node_modules/
+
+# Session handoff snapshots (ephemeral)
+.plan/session-handoff/
+.plan/session-handoff.md
+doc/.plan/

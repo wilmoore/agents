@@ -1,0 +1,23 @@
+{
+  "name": "devrel-agent",
+  "version": "0.1.0",
+  "description": "RevenueCat DevRel Agent - converts developer signals into DevRel artifacts",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "devrel-agent": "./bin/devrel-agent.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "verify": "tsx src/verify.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.3.0"
+  }
+}
